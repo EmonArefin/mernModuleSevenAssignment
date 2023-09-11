@@ -17,6 +17,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const hpp = require("hpp");
+const mongoSanitize = require('express-mongo-sanitize');
 
 const rateLimit = require("express-rate-limit");
 const limiter = rateLimit({
@@ -29,9 +30,10 @@ const limiter = rateLimit({
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(cors());
 app.use(helmet());
 app.use(hpp());
-app.use(cors());
+app.use(mongoSanitize());
 
 app.use(limiter)
 
