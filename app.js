@@ -15,7 +15,6 @@ const cookieParser = require("cookie-parser");
 // const validator = require("validator");
 
 const cors = require("cors");
-const sanitizerPlugin = require('mongoose-sanitizer');
 const helmet = require("helmet");
 const hpp = require("hpp");
 
@@ -31,7 +30,6 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(helmet());
-app.use(sanitizerPlugin());
 app.use(hpp());
 app.use(cors());
 
